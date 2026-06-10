@@ -70,6 +70,21 @@ for (const file of eventFiles) {
 }
 
 /* ========================= */
+/* KEEP RENDER ALIVE */
+/* ========================= */
+
+const http = require("http");
+
+http.createServer((req, res) => {
+    res.writeHead(200, {
+        "Content-Type": "text/plain"
+    });
+    res.end("Nightfall is online!");
+}).listen(process.env.PORT || 3000, () => {
+    console.log("🌐 Web server started");
+});
+
+/* ========================= */
 /* LOGIN */
 /* ========================= */
 
